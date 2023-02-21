@@ -73,8 +73,8 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        return view('roles.show', compact('role'));
-    }
+        $found_role = $this->roleService->showRole($role);
+        return $this->successResponse($found_role);    }
 
     /**
      * Show the form for editing the specified resource.

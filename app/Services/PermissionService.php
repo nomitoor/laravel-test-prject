@@ -66,4 +66,9 @@ class PermissionService
     {
         return Permission::findOrFail($id);
     }
+
+    public function showPermission(Permission $permission)
+    {
+        return PermissionResource::collection($permission);
+    }
 }

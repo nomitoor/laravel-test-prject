@@ -111,6 +111,19 @@ class PermissionController extends Controller
     }
 
     /**
+     * The show function is a public function that takes a User object as a parameter and returns a
+     * success response with the found user
+     * 
+     * @param User user The user object that is passed in from the route.
+     * 
+     * @return The user object
+     */
+    public function show(Permission $permission)
+    {
+        $found_permission = $this->permissionService->showPermission($permission);
+        return $this->successResponse($found_permission);
+    }
+    /**
      * It deletes a permission from the database
      * 
      * @param Permission permission The permission model instance.

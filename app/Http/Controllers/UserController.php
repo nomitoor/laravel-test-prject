@@ -50,7 +50,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $found_user = $this->userService->showUser($user);
+        return $this->successResponse($found_user);
     }
 
 

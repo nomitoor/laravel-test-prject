@@ -89,4 +89,9 @@ class UserService
         $user->update(array('api_token' => $token, 'api_token_expires_at' => now()->addHours(48)));
         return $user;
     }
+
+    public function showUser(User $user)
+    {
+        return new UserResource($user->load('roles'));
+    }
 }
